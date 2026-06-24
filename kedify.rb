@@ -5,20 +5,20 @@
 class Kedify < Formula
   desc "Kedify CLI"
   homepage "https://github.com/kedify/cli"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/kedify/cli/releases/download/v0.0.2/kedify_0.0.2_darwin_amd64.tar.gz"
-      sha256 "e77c9dd41366a008cc441fbf11a1acae1ed0198aa5dab95b3e7ac4e1e2c552c3"
+      url "https://github.com/kedify/cli/releases/download/v0.0.3/kedify_0.0.3_darwin_amd64.tar.gz"
+      sha256 "6e98111e41070823497cdfc47b3b388cebc1eaa70b5a45e6ae6dd1929440b9c0"
 
       define_method(:install) do
         bin.install "kedify"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/kedify/cli/releases/download/v0.0.2/kedify_0.0.2_darwin_arm64.tar.gz"
-      sha256 "eb818e4d5e131a06dfd3e85747ce0c40f3ab53a3f0db4fa46eb2168b938eda88"
+      url "https://github.com/kedify/cli/releases/download/v0.0.3/kedify_0.0.3_darwin_arm64.tar.gz"
+      sha256 "25976b25c34dcabcda38966ed8127250079de7d8745a3bd298c80b889529a8d0"
 
       define_method(:install) do
         bin.install "kedify"
@@ -28,15 +28,15 @@ class Kedify < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kedify/cli/releases/download/v0.0.2/kedify_0.0.2_linux_amd64.tar.gz"
-      sha256 "18d2c5a5eb3f8fc4a4c8c43fe20a2716df91e5815e8384a59448e4710a4b7f63"
+      url "https://github.com/kedify/cli/releases/download/v0.0.3/kedify_0.0.3_linux_amd64.tar.gz"
+      sha256 "c329f4f774939a26be164e46adee20b924fa48e4cb2bc1ad259aaa18650cb220"
       define_method(:install) do
         bin.install "kedify"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kedify/cli/releases/download/v0.0.2/kedify_0.0.2_linux_arm64.tar.gz"
-      sha256 "e7c8f1afc3ee7f287b8dc6d0c3764fccb9a6d1edc6599159fc6f405a71d6c77f"
+      url "https://github.com/kedify/cli/releases/download/v0.0.3/kedify_0.0.3_linux_arm64.tar.gz"
+      sha256 "6f98c56b7b472b2abd870fcc55116cb35a50cd7e2fcefb7e653e48ead8baeec6"
       define_method(:install) do
         bin.install "kedify"
       end
