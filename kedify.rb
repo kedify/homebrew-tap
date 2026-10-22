@@ -5,41 +5,53 @@
 class Kedify < Formula
   desc "Kedify CLI"
   homepage "https://github.com/kedify/cli"
-  version "0.0.5"
+  version "0.0.6"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/kedify/cli/releases/download/v0.0.5/kedify_0.0.5_darwin_amd64.tar.gz"
-      sha256 "ae41a894046dd7bc6a472bbdd037cb88f8602a42a9c50bd01859963311524344"
+      url "https://github.com/kedify/cli/releases/download/v0.0.6/kedify_0.0.6_darwin_amd64.tar.gz"
+      sha256 "cb6708df03d33dbffc859050103601432515ff34e3e60ad5fb59736ea1f8e303"
 
       define_method(:install) do
         bin.install "kedify"
+        pkgshare.install "LICENSE", "NOTICE", "licenses"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/kedify/cli/releases/download/v0.0.5/kedify_0.0.5_darwin_arm64.tar.gz"
-      sha256 "03d6a261f64c9306c15fa31b667678b1dcd55c761925c48a65ad15fff5eed6ce"
+      url "https://github.com/kedify/cli/releases/download/v0.0.6/kedify_0.0.6_darwin_arm64.tar.gz"
+      sha256 "d2b747f31bf27c8664264cf517f9fb94e14e0381715b41997b9714068787fbd1"
 
       define_method(:install) do
         bin.install "kedify"
+        pkgshare.install "LICENSE", "NOTICE", "licenses"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kedify/cli/releases/download/v0.0.5/kedify_0.0.5_linux_amd64.tar.gz"
-      sha256 "6046a6323da55db72b1e7081f63fd27aed69dbc7a6f44565cb7e8f0b77b87618"
+      url "https://github.com/kedify/cli/releases/download/v0.0.6/kedify_0.0.6_linux_amd64.tar.gz"
+      sha256 "d2864ea79d0f08d3364cf43b86e05e75ba73a55a48c55d7c9430da1b9ec97314"
       define_method(:install) do
         bin.install "kedify"
+        pkgshare.install "LICENSE", "NOTICE", "licenses"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kedify/cli/releases/download/v0.0.5/kedify_0.0.5_linux_arm64.tar.gz"
-      sha256 "5cdb718f0e088621a138ec6be68b9132c49a6694d81355dd07d4416d48cdf075"
+      url "https://github.com/kedify/cli/releases/download/v0.0.6/kedify_0.0.6_linux_arm64.tar.gz"
+      sha256 "3d8a12a97a42d3707359a06426652cb52497fed21d8ce78d562057e186a7dbf7"
       define_method(:install) do
         bin.install "kedify"
+        pkgshare.install "LICENSE", "NOTICE", "licenses"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      The bundled recommendation engine uses Kedify's commercial license.
+      Production analysis requires a subscription covering that feature, including offline use.
+      See #{pkgshare}/NOTICE and #{pkgshare}/licenses for the terms and trial permissions.
+    EOS
   end
 end
